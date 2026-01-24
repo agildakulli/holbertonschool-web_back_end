@@ -4,9 +4,10 @@ export default function cleanSet(set, startString) {
     return '';
   }
   set.forEach((element) => {
-    if (typeof element !== 'undefined') {
-      if (element.startsWith(startString)) {
-        arr.push(element.split(startString)[1]);
+    if (typeof element === 'string' && element.startsWith(startString)) {
+      const cleaned = element.slice(startString.length);
+      if (cleaned) {
+        arr.push(cleaned);
       }
     }
   });
